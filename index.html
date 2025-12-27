@@ -1,90 +1,138 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-419" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radio Pinolera - La App de Nicaragua</title>
-    <meta name="description" content="Descarga Radio Pinolera. Todas las emisoras de Nicaragua en vivo en tu celular.">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Radio Pinolera | La App de Nicaragua</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <div class="logo">
-            <i class="fas fa-radio"></i> Radio Pinolera
+    <nav class="glass-nav">
+        <div class="main-container">
+            <div class="nav-content">
+                <div class="logo"><i class="fas fa-radio"></i> Radio Pinolera</div>
+                <div class="nav-actions">
+                    <button id="theme-toggle" class="theme-btn" aria-label="Cambiar tema">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="#descarga" class="nav-btn-small">Instalar App</a>
+                </div>
+            </div>
         </div>
-        <a href="#descarga" class="nav-btn">Descargar App</a>
-    </header>
+    </nav>
 
     <section class="hero">
-        <div class="hero-text">
-            <h1>Lleva a Nicaragua <br><span>en tu bolsillo 🇳🇮</span></h1>
-            <p>La mejor música, noticias y deportes de nuestra tierra. Escucha todas las emisoras de Nicaragua en vivo, sin cortes y totalmente gratis.</p>
-            
-            <div class="buttons-container">
-                <a href="https://play.google.com/store/apps/details?id=com.app.radiopinolera" class="download-btn" id="descarga" target="_blank">
-                    <i class="fab fa-google-play"></i>
-                    <div>
-                        <small>DISPONIBLE EN</small>
-                        Google Play
-                    </div>
-                </a>
-                
-                <a href="http://www.amazon.com/gp/product/B0G761K4P8" class="download-btn amazon-style" target="_blank">
-                    <i class="fab fa-amazon"></i>
-                    <div>
-                        <small>DISPONIBLE EN</small>
-                        Amazon Store
-                    </div>
-                </a>
-            </div>
-            <p class="compatibility">Compatible con Android 6.0+</p>
-        </div>
+        <div class="main-container">
+            <div class="hero-flex">
+                <div class="hero-text">
+                    <span class="pill-badge">NUEVA VERSIÓN 6.0.0</span>
+                    <h1>Lleva a Nicaragua <br><span>en tu bolsillo.</span></h1>
+                    <p class="hero-sub">La mejor música, noticias y deportes de nuestra tierra. Todas las emisoras en vivo, sin cortes y totalmente gratis.</p>
 
-        <div class="hero-img">
-            <div class="phone-mockup">
-                <div class="phone-screen">
-                    <img src="captura.png" alt="Radio Pinolera App" class="app-screenshot">
+                    <div class="buttons-wrapper" id="descarga">
+                        <a href="https://play.google.com/store/apps/details?id=com.app.radiopinolera" class="store-btn google" target="_blank" rel="noopener">
+                            <i class="fab fa-google-play"></i> Google Play
+                        </a>
+                        <a href="http://www.amazon.com/gp/product/B0G761K4P8" class="store-btn amazon" target="_blank" rel="noopener">
+                            <i class="fab fa-amazon"></i> Amazon Store
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-visual animate-floating">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <img src="captura.png" alt="Radio Pinolera App">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="features" id="features">
-        <h2 class="reveal">¿Por qué elegirnos?</h2>
-        <div class="grid">
-            <div class="card reveal">
-                <div class="icon-box"><i class="fas fa-bolt"></i></div>
-                <h3>Súper Ligera</h3>
-                <p>Optimizada para no consumir memoria ni gastar tus datos móviles rápidamente.</p>
-            </div>
-            
-            <div class="card reveal">
-                <div class="icon-box"><i class="fas fa-headphones-alt"></i></div>
-                <h3>Segundo Plano</h3>
-                <p>Sigue escuchando la radio mientras chateas o con la pantalla apagada.</p>
-            </div>
-            
-            <div class="card reveal">
-                <div class="icon-box"><i class="fas fa-flag"></i></div>
-                <h3>100% Nica</h3>
-                <p>Desde la Nueva Radio Ya hasta Radio Corporación. ¡Lo nuestro suena mejor!</p>
+    <section class="stats-bar">
+        <div class="main-container">
+            <div class="stats-flex">
+                <div class="stat-item"><strong>+50</strong><span>Emisoras</span></div>
+                <div class="stat-item"><strong>+100</strong><span>Descargas</span></div>
+                <div class="stat-item"><strong>4.8</strong><span>Estrellas</span></div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="brand-footer">
-            DESARROLLADO POR XGAMING DIGITAL
+    <section class="bento-section">
+        <div class="main-container">
+            <div class="bento-grid">
+                <div class="card card-large">
+                    <div class="card-info">
+                        <h3>Señal HD sin interrupciones</h3>
+                        <p>Nuestra tecnología optimiza el audio para que escuches la radio incluso con internet lento o pocos datos.</p>
+                    </div>
+                    <div class="card-icon"><i class="fas fa-broadcast-tower"></i></div>
+                </div>
+
+                <div class="card">
+                    <h3>Multitarea Real</h3>
+                    <p>Usa WhatsApp o Facebook sin que la radio se detenga en ningún momento.</p>
+                </div>
+
+                <div class="card">
+                    <h3>100% Nicaragüense</h3>
+                    <p>Noticias al minuto, béisbol y toda la música chinamera que te gusta.</p>
+                </div>
+
+                <div class="card card-qr animate-on-scroll">
+    <div class="card-info">
+        <h3>Descarga Directa</h3>
+        <p>Escanea con tu cámara.</p>
+    </div>
+    <div class="qr-box">
+        <img src="qr.png" alt="Mi Código QR Personalizado">
+    </div>
+</div>
+
+                <div class="card card-quote">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"La mejor para escuchar la Nueva Radio Ya desde el extranjero."</p>
+                    <span>- Usuario verificado</span>
+                </div>
+            </div>
         </div>
-        <p>&copy; <span id="year">2025</span> Radio Pinolera. Todos los derechos reservados.</p>
-        <div class="footer-links">
-            <a href="#">Política de Privacidad</a>
-            <a href="mailto:kleo@xgamingdigital.com">Soporte</a>
+    </section>
+
+    <footer class="premium-footer">
+        <div class="main-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo"><i class="fas fa-radio"></i> Radio Pinolera</div>
+                    <p>Conectando a los nicaragüenses en todo el mundo a través del sonido de nuestra tierra.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-group">
+                    <h4>Nuestra App</h4>
+                    <ul>
+                        <li><a href="https://play.google.com/store/apps/details?id=com.app.radiopinolera" target="_blank">Google Play</a></li>
+                        <li><a href="http://www.amazon.com/gp/product/B0G761K4P8" target="_blank">Amazon Store</a></li>
+                    </ul>
+                </div>
+                <div class="footer-group">
+                    <h4>Ayuda</h4>
+                    <ul>
+                        <li><a href="mailto:kleo@xgamingdigital.com">Soporte Técnico</a></li>
+                        <li><a href="#">Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="dev-info">DESARROLLADO POR <span>XGAMING DIGITAL</span></div>
+                <p class="copy">© 2025 Radio Pinolera. Todos los derechos reservados.</p>
+            </div>
         </div>
     </footer>
 
