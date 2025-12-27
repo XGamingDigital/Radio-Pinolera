@@ -319,3 +319,41 @@ footer {
         height: 500px;
     }
 }
+
+/* --- ARREGLO DE LOS BOTONES DE DESCARGA --- */
+
+/* La "caja" que los mantiene separados y ordenados */
+.buttons-container {
+    display: flex;
+    gap: 15px;           /* Espacio de separación */
+    flex-wrap: wrap;     /* Para que bajen si no caben en celular */
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+/* Estilo específico para el botón de Amazon */
+.amazon-style {
+    background-color: white !important; /* Fondo blanco */
+    color: #333 !important;             /* Letra oscura */
+    border: 1px solid #ddd;             /* Borde gris suave */
+}
+
+/* Icono naranja de Amazon */
+.amazon-style i {
+    color: #ff9900;
+    font-size: 1.8rem;
+}
+
+/* Efecto al pasar el mouse sobre Amazon */
+.amazon-style:hover {
+    background-color: #f9f9f9 !important;
+    border-color: #ff9900;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Asegurar que en celulares se vean centrados */
+@media (max-width: 768px) {
+    .buttons-container {
+        justify-content: center;
+    }
+}
