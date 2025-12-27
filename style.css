@@ -1,359 +1,124 @@
-:root {
-    --primary: #0067c7; /* Azul Bandera */
-    --dark: #003b73;
-    --accent: #ffb700;
-    --light: #f4f8fb;
-    --text: #333;
+:root[data-theme="dark"] {
+    --bg-color: #0d1117;
+    --card-bg: #161b22;
+    --card-border: #30363d;
+    --text-main: #ffffff;
+    --text-muted: #8b949e;
+    --nav-bg: rgba(13, 17, 23, 0.9);
+    --primary-blue: #2f81f7;
+    --accent-blue: rgba(47, 129, 247, 0.15);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root[data-theme="light"] {
+    --bg-color: #ffffff;
+    --card-bg: #f6f8fa;
+    --card-border: #d0d7de;
+    --text-main: #1f2328;
+    --text-muted: #656d76;
+    --nav-bg: rgba(255, 255, 255, 0.9);
+    --primary-blue: #0969da;
+    --accent-blue: #ddf4ff;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    color: var(--text);
-    line-height: 1.6;
-    background-color: var(--light);
-    overflow-x: hidden; /* Evita scroll horizontal indeseado */
+* { margin: 0; padding: 0; box-sizing: border-box; transition: background 0.3s, color 0.3s; }
+body { background: var(--bg-color); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+/* CONTENEDOR FLUIDO PARA PC */
+.main-container {
+    max-width: 1400px; /* Aumentado para ocupar más pantalla en PC */
+    margin: 0 auto;
+    padding: 0 5%;
+    width: 100%;
 }
 
-/* --- HEADER --- */
-header {
+/* NAV */
+.glass-nav { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 15px 0; background: var(--nav-bg); backdrop-filter: blur(12px); border-bottom: 1px solid var(--card-border); }
+.nav-content { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-weight: 800; color: var(--primary-blue); font-size: 1.2rem; }
+.nav-actions { display: flex; align-items: center; gap: 20px; }
+.theme-btn { background: none; border: 1px solid var(--card-border); color: var(--text-main); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.nav-btn-small { background: var(--primary-blue); color: white; padding: 10px 22px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+
+/* HERO (PANTALLA COMPLETA) */
+.hero { padding-top: 120px; padding-bottom: 60px; min-height: 90vh; display: flex; align-items: center; }
+.hero-flex { display: flex; align-items: center; justify-content: space-between; gap: 60px; width: 100%; }
+.hero-text { flex: 1.2; text-align: left; }
+.hero-visual { flex: 0.8; display: flex; justify-content: flex-end; }
+
+h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; font-weight: 800; letter-spacing: -2px; margin-bottom: 24px; }
+h1 span { color: var(--primary-blue); }
+.hero-sub { color: var(--text-muted); font-size: 1.3rem; line-height: 1.5; margin-bottom: 40px; max-width: 600px; }
+.pill-badge { background: var(--accent-blue); color: var(--primary-blue); padding: 6px 14px; border-radius: 50px; font-weight: 700; font-size: 0.8rem; margin-bottom: 20px; display: inline-block; }
+
+/* MOCKUP TELÉFONO */
+.phone-mockup { width: 300px; height: 600px; background: #000; border: 12px solid #161b22; border-radius: 45px; box-shadow: 0 30px 60px rgba(0,0,0,0.5); overflow: hidden; position: relative; }
+.phone-screen img { width: 100%; height: 100%; object-fit: cover; }
+
+/* BOTONES */
+.buttons-wrapper { display: flex; gap: 16px; flex-wrap: wrap; }
+.store-btn { padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 12px; transition: 0.3s ease; }
+.google { background: var(--primary-blue); color: white; }
+.amazon { background: #ff9900; color: #000; }
+.store-btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+/* STATS */
+.stats-bar { padding: 60px 0; background: var(--card-bg); border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); }
+.stats-flex { display: flex; justify-content: space-around; text-align: center; }
+.stat-item strong { display: block; font-size: 3rem; color: var(--primary-blue); letter-spacing: -1px; }
+.stat-item span { color: var(--text-muted); font-weight: 500; font-size: 1rem; }
+
+/* BENTO GRID */
+.bento-section { padding: 100px 0; }
+.bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 32px; padding: 40px; transition: 0.3s; }
+.card-large { grid-column: span 2; display: flex; justify-content: space-between; align-items: center; }
+.card h3 { color: var(--primary-blue); margin-bottom: 12px; font-size: 1.8rem; }
+.card p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; }
+.card-icon { font-size: 4rem; color: var(--primary-blue); opacity: 0.2; }
+.card-qr { display: flex; align-items: center; justify-content: space-between; }
+.qr-box img {
     background: white;
-    padding: 1rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.nav-btn {
-    background: var(--primary);
-    color: white;
-    padding: 0.5rem 1.5rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.nav-btn:hover {
-    background: var(--dark);
-    transform: translateY(-2px);
-}
-
-/* --- HERO --- */
-.hero {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
-    color: white;
-    padding: 4rem 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 90vh;
-    overflow: hidden;
-}
-
-.hero-text {
-    flex: 1;
-    max-width: 600px;
-    padding-right: 20px;
-    /* Animación de entrada */
-    animation: slideInLeft 1s ease-out;
-}
-
-.hero h1 {
-    font-size: 3.5rem;
-    line-height: 1.1;
-    margin-bottom: 1rem;
-}
-
-.hero h1 span {
-    color: #aed9ff;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-}
-
-/* Botón Google Play */
-.download-btn {
-    background: white;
-    color: var(--primary);
-    padding: 0.8rem 1.5rem;
+    padding: 10px;        /* Espacio blanco alrededor del QR */
     border-radius: 12px;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 15px;
-    transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    /* Animación de latido */
-    animation: pulse 2s infinite;
-}
-
-.download-btn i {
-    font-size: 2rem;
-}
-
-.download-btn small {
+    width: 120px;         /* Ajusta este tamaño si quieres que sea más grande */
+    height: 120px;
     display: block;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    font-weight: normal;
+    object-fit: contain;  /* Asegura que el QR no se deforme */
 }
 
-.download-btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+/* FOOTER */
+.premium-footer { padding: 80px 0 40px; border-top: 1px solid var(--card-border); background: var(--card-bg); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+.footer-logo { font-weight: 800; font-size: 1.5rem; color: var(--primary-blue); margin-bottom: 20px; }
+.social-links { display: flex; gap: 15px; margin-top: 20px; }
+.social-links a { width: 40px; height: 40px; background: var(--accent-blue); color: var(--primary-blue); display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none; }
+.footer-group h4 { margin-bottom: 25px; font-size: 1.1rem; }
+.footer-group ul { list-style: none; }
+.footer-group ul li { margin-bottom: 12px; }
+.footer-group ul li a { color: var(--text-muted); text-decoration: none; transition: 0.3s; }
+.footer-group ul li a:hover { color: var(--primary-blue); }
+.footer-bottom { display: flex; justify-content: space-between; border-top: 1px solid var(--card-border); padding-top: 30px; font-size: 0.9rem; color: var(--text-muted); }
+.footer-bottom span { color: var(--primary-blue); font-weight: 700; }
+
+/* ANIMACIONES */
+.animate-floating { animation: float 6s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+/* MÓVIL (Ajustes para que no se rompa nada) */
+@media (max-width: 900px) {
+    .hero-flex { flex-direction: column; text-align: center; }
+    .hero-text { text-align: center; }
+    .hero-visual { justify-content: center; }
+    .hero-sub { margin-left: auto; margin-right: auto; }
+    .buttons-wrapper { justify-content: center; }
+    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+    .social-links { justify-content: center; }
 }
 
-.compatibility {
-    margin-top: 15px !important;
-    font-size: 0.8rem !important;
-    opacity: 0.7;
-}
-
-/* --- CELULAR MOCKUP --- */
-.hero-img {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    /* Animación flotante */
-    animation: float 6s ease-in-out infinite;
-}
-
-.phone-mockup {
-    width: 300px;
-    height: 600px;
-    background: #111;
-    border-radius: 40px;
-    border: 10px solid #222;
-    position: relative;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-    overflow: hidden;
-}
-
-.phone-screen {
-    width: 100%;
-    height: 100%;
-    background: #000;
-    overflow: hidden;
-    position: relative;
-}
-
-.app-screenshot {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Notch del celular */
-.phone-mockup::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 25px;
-    background: #222;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    z-index: 10;
-}
-
-/* --- FEATURES --- */
-.features {
-    padding: 5rem 5%;
-    text-align: center;
-    background: white;
-}
-
-.features h2 {
-    color: var(--dark);
-    margin-bottom: 3rem;
-    font-size: 2.2rem;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2.5rem;
-}
-
-.card {
-    background: var(--light);
-    padding: 2.5rem;
-    border-radius: 20px;
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    background: white;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.icon-box {
-    font-size: 3rem;
-    color: var(--primary);
-    margin-bottom: 1.5rem;
-}
-
-/* --- ANIMACIONES --- */
-
-/* 1. Flotar */
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0px); }
-}
-
-/* 2. Entrada Lateral */
-@keyframes slideInLeft {
-    from { opacity: 0; transform: translateX(-50px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-/* 3. Logo Balanceándose */
-@keyframes rock {
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(-10deg); }
-    75% { transform: rotate(10deg); }
-    100% { transform: rotate(0deg); }
-}
-
-.logo i {
-    display: inline-block;
-    animation: rock 3s ease-in-out infinite;
-}
-
-/* 4. Pulso del Botón */
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(0, 103, 199, 0.7); }
-    70% { box-shadow: 0 0 0 15px rgba(0, 103, 199, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(0, 103, 199, 0); }
-}
-
-/* 5. Clases para Scroll Reveal (JS) */
-.reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease-out;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --- FOOTER --- */
-footer {
-    background: #111;
-    color: white;
-    text-align: center;
-    padding: 4rem 5%;
-}
-
-.brand-footer {
-    margin-bottom: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: var(--primary);
-}
-
-.footer-links {
-    margin-top: 2rem;
-}
-
-.footer-links a {
-    color: #888;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 0.9rem;
-    transition: 0.3s;
-}
-
-.footer-links a:hover {
-    color: white;
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding-top: 7rem;
-    }
-    
-    .hero-text {
-        padding-right: 0;
-        margin-bottom: 3rem;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .phone-mockup {
-        width: 250px;
-        height: 500px;
-    }
-}
-
-/* --- ARREGLO DE LOS BOTONES DE DESCARGA --- */
-
-/* La "caja" que los mantiene separados y ordenados */
-.buttons-container {
-    display: flex;
-    gap: 15px;           /* Espacio de separación */
-    flex-wrap: wrap;     /* Para que bajen si no caben en celular */
-    margin-top: 25px;
-    margin-bottom: 20px;
-}
-
-/* Estilo específico para el botón de Amazon */
-.amazon-style {
-    background-color: white !important; /* Fondo blanco */
-    color: #333 !important;             /* Letra oscura */
-    border: 1px solid #ddd;             /* Borde gris suave */
-}
-
-/* Icono naranja de Amazon */
-.amazon-style i {
-    color: #ff9900;
-    font-size: 1.8rem;
-}
-
-/* Efecto al pasar el mouse sobre Amazon */
-.amazon-style:hover {
-    background-color: #f9f9f9 !important;
-    border-color: #ff9900;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* Asegurar que en celulares se vean centrados */
-@media (max-width: 768px) {
-    .buttons-container {
-        justify-content: center;
-    }
+@media (max-width: 600px) {
+    .bento-grid { grid-template-columns: 1fr; }
+    .card-large, .card-qr { grid-column: span 1; flex-direction: column; text-align: center; gap: 20px; }
+    .stats-flex { flex-direction: column; gap: 40px; }
+    .phone-mockup { width: 260px; height: 520px; }
 }
